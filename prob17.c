@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size (sizeof a/sizeof a[0])
+int main()
+{
+    int a[100][100]={0},i,j,k,n;
+    //printf("enter number:");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            a[i][j]=0;
+        }
+    }
+    i=1;
+    j=(n+1)/2;
+    k=1;
+    a[i][j]=k;
+    while(k<=n*n)
+    {
+        if(i-1==0)
+        {
+            i=n;
+        }
+        else
+        {
+            i--;
+        }
+        if(j+1>n)
+        {
+            j=1;
+        }
+        else
+        {
+            j++;
+        }
+        if(a[i][j]!=0)
+        {
+            if(i+1>n)
+            {
+                i=1;
+            }
+            else
+            {
+                i++;
+            }
+            if(j-1==0)
+            {
+                j=n;
+            }
+            else
+            {
+                j--;
+            }
+            i++;
+        }
+        k++;
+        a[i][j]=k;
+ 
+    }
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
